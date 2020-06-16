@@ -1,15 +1,18 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/ded9yhg1e/image/upload/v1592313865/mnrfqelrtzqtgiwbbjx5.jpg);">
   <div class="container">
-    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
-    <p>Change your life and learn to code at one of our campuses around the world.</p>
-    <a class="btn btn-flat" href="#">Apply now</a>
+    <h1>Meilleur site de location d'animaux</strong> !</h1>
+    <p>Lion, Singe, Crocodile, Jaguar et bien d'autres...</p>
+    <%= link_to "Creer une annonce", new_animal_path, class: 'btn btn-primary' %>
+    <div class="form-group">
+    <input type="input" class="form-control" id="exampleFormControlInput1" placeholder="Lion gentil...">
+  </div>
+  <i class="fas fa-search"></i>
   </div>
 </div>
 
 <div class="container">
 <div class='d-flex justify-content-between align-items-center pt-5'>
     <h1 class="text-center">Animals</h1>
-    <%= link_to "Creer une annonce", new_animal_path, class: 'btn btn-primary' %>
 </div>
     <div class="row">
         <% @animals.each do |animal| %>
