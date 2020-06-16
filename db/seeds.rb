@@ -69,4 +69,3 @@ if fill_animals
   end
 end
 puts "It's in DB! Now you can watch lots of animals!!!"
-

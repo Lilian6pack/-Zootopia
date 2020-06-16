@@ -24,6 +24,10 @@ gem 'jbuilder', '~> 2.7'
 
 #add a la mano
 gem 'devise'
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4241195095fe1c72d09641c2d397ff22b43f6ce7
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.12.0'
 
