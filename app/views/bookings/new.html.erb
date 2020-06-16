@@ -1,0 +1,6 @@
+<%= simple_form_for [@animal, @booking] do |f| %>
+  <%= f.input :start_date, as: :date%>
+  <%= f.input :end_date, as: :date%>
+  <%= f.input :animal_id, as: :hidden, :input_html => { :value => @animal.id } %>
+  <%= f.button :submit, class: "btn-primary" %>
+<% end %>

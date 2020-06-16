@@ -1,0 +1,18 @@
+<div class="container text-center mt-5">
+  <h1> Your booking details </h1>
+
+  <div class="row">
+        <div class="col-12 col-md-6 col-lg-6">
+          <div class="card text-center mt-5">
+            <img src="<%= @booking.animal.photo_url%>" class="card-img-top" alt="...">
+            <div class="card-description">
+              <h3> Your animal is <%= @booking.animal.name %></h3>
+              <p>N° of your booking : <%= @booking.id %></p>
+              <p>From <%= @booking.start_date %></p>
+              <p>To <%= @booking.end_date %></p>
+              <%= link_to "Go back to your bookings", animal_bookings_path, class: "btn btn-primary btn-lg" %>
+            </div>
+          </div>
+        </div>
+  </div>
+</div>
