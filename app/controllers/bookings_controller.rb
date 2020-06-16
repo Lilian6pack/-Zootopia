@@ -5,10 +5,12 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @animal = Animal.find(params[:animal_id])
   end
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.user = current_user
     if @booking.save
       redirect_to booking_path(@booking)
     else
@@ -23,6 +25,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:cocktail).permit(:name)
+    params.require(:booking).permit(:start_date, :end_date, :animal_id)
   end
 end
