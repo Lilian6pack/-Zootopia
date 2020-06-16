@@ -6,6 +6,7 @@ require 'nokogiri'
 fill_users = true
 fill_animals = true
 
+
 # generate Users
 if fill_users
   puts "please wait we load some users for your zoo"
@@ -65,7 +66,7 @@ if fill_animals
       puts animal.hour_price
       animal.save
     end
-    
   end
 end
 puts "It's in DB! Now you can watch lots of animals!!!"
+
