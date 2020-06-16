@@ -23,9 +23,7 @@
                     <img src=<%= animal.photo_url%> class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><%= animal.name %></h5>
-
                         <%= animal.description[0..100] + " ..." %>
-
                         <%= link_to "Voir plus", animal_path(animal), class:'btn btn-primary btn-block mt-2' %>
                     </div>
                 </div>
