@@ -11,7 +11,7 @@
                   input_html: { autocomplete: "name" }%>
       <%= f.input :email,
                   required: true,
-                  autofocus: true,
+                  autofocus: false,
                   input_html: { autocomplete: "email" }%>
       <%= f.input :password,
                   required: true,
@@ -20,6 +20,10 @@
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
+      <%= f.input :url_photo,
+                  required: false,
+                  autofocus: false,
+                  input_html: { autocomplete: "url_photo" }%>
     </div>
 
     <div class="form-actions">
