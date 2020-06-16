@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     if @booking.save
-      redirect_to  animal_booking_path(@booking.animal.id, @booking.id)
+      redirect_to animal_booking_path(@booking.animal.id, @booking.id)
     else
       render 'new'
     end
