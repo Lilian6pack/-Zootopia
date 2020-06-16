@@ -27,6 +27,10 @@ gem 'devise'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.12.0'
 
+# gem faker to fill the db (animals, user, booking)
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
