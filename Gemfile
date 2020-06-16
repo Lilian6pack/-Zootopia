@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.7'
 
 #add a la mano
 gem 'devise'
+# gem faker to fill the db (animals, user, booking)
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
