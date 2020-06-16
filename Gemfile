@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 
 #add a la mano
 gem 'devise'
+gem 'dotenv-rails', groups: [:development, :test]
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
