@@ -17,7 +17,8 @@ class AnimalsController < ApplicationController
 
   def create
     @animal = Animal.new(animal_params)
-    if @animal.save
+    @animal.user_id = current_user.id
+    if @animal.save!
       redirect_to animal_path(@animal)
     else
       render 'new'
