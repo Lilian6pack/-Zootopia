@@ -1,0 +1,7 @@
+<h1>Animals</h1>
+
+<%= @animals.each do |animal| %>
+    <%= animal.name %>
+    <%= animal.description %>
+    <% end %>
+<%= link_to "Creer une annonce", new_animal_path %>
