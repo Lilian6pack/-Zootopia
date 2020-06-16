@@ -2,7 +2,9 @@
   <div class="container">
     <h1>Meilleur site de location d'animaux</strong> !</h1>
     <p>Lion, Singe, Crocodile, Jaguar et bien d'autres...</p>
-    <%= link_to "Creer une annonce", new_animal_path, class: 'btn btn-primary' %>
+    <% if current_user.zoo %>
+      <%= link_to "Creer une annonce", new_animal_path, class: 'btn btn-primary' %>
+    <% end %>
     <div class="form-group">
     <input type="input" class="form-control" id="exampleFormControlInput1" placeholder="Lion gentil...">
   </div>
@@ -21,7 +23,9 @@
                     <img src=<%= animal.photo_url%> class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><%= animal.name %></h5>
-                        <%= animal.description[1..120]%>
+
+                        <%= animal.description[0..100] + " ..." %>
+
                         <%= link_to "Voir plus", animal_path(animal), class:'btn btn-primary btn-block mt-2' %>
                     </div>
                 </div>

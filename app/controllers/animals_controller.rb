@@ -8,6 +8,7 @@ class AnimalsController < ApplicationController
 
   def show
     set_animal
+    
   end
 
   def new
