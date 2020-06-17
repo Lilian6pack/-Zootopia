@@ -39,10 +39,6 @@ class AnimalsController < ApplicationController
     redirect_to animals_path
   end
 
-  def search
-    raise
-  end
-
   private
 
   def animal_params
