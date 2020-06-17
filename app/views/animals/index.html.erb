@@ -6,12 +6,14 @@
       <%= link_to "Creer une annonce", new_animal_path, class: 'btn btn-primary' %>
     <% end %>
 
+    
+    <form action="<%=search_path%>" method="get">
     <div class="form-group">
-      <input type="input" class="form-control" id="exampleFormControlInput1" placeholder="Lion gentil...">
+      <input type="text" class="form-control" id="exampleFormControlInput1" aria-describedby="emailHelp" placeholder="Lion gentil...">
     </div>
-
-    <i class="fas fa-search"></i>
-  </div>
+    <button type="submit" id="btnsubmit" class="btn btn-primary">Submit</button>
+  </form>
+  <i class="fas fa-search"></i>
 </div>
 
 <div class="container">

@@ -4,6 +4,7 @@ class AnimalsController < ApplicationController
 
   def index
     @animals = Animal.all
+    @animal = Animal.new
   end
 
   def show
@@ -29,6 +30,10 @@ class AnimalsController < ApplicationController
     set_animal
     @animal.destroy
     redirect_to animals_path
+  end
+
+  def search
+    raise
   end
 
   private
