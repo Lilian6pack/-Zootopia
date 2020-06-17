@@ -26,11 +26,11 @@
             <div class="col-12 col-md-6 col-lg-4 pt-3">
                 <div class="card text-center box-shadow border-0" style="width: 18rem;">
                 <%= cl_image_tag animal.photo_url.key, id: "img_card", crop: :fill %>
-                    <div class="ca"rd-body"">
-                        <h5 class="card-title"><%= animal.name %></h5>
-                        <%= animal.description[0..100] + " ..." %>
-                        <p><strong>Price </strong>:<%= animal.hour_price %> €</p>
-                        <%= link_to "Voir plus", animal_path(animal), class:'btn btn-primary btn-block mt-2' %>
+                    <div class="ca rd-body">
+                      <h5 class="card-title"><%= animal.name %></h5>
+                      <%= animal.description[0..100] + " ..." %>
+                      <p><strong>Price </strong>:<%= animal.hour_price %> €</p>
+                      <%= link_to "Voir plus", animal_path(animal), class:'btn btn-primary btn-block mt-2' %>
                     </div>
                 </div>
             </div>
