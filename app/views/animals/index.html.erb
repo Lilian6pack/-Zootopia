@@ -14,14 +14,14 @@
     </div>
 
   </form>
+
   </div>
 </div>
 
 <div class="container">
-<div class='d-flex justify-content-between align-items-center pt-5'>
+  <div class='d-flex justify-content-between align-items-center pt-5'>
     <h1 class="text-center">Animals</h1>
-</div>
-    <div class="row">
+       <div class="row">
         <% @animals.each do |animal| %>
             <div class="col-12 col-md-6 col-lg-4 pt-3">
                 <div class="card text-center box-shadow border-0" style="width: 18rem;">
@@ -36,6 +36,11 @@
             </div>
             <% end %>
     </div>
+  </div>
 </div>
 
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 

@@ -25,7 +25,7 @@ if fill_users
     user.zoo = Faker::Boolean.boolean(true_ratio: 0.6)
     puts user
     # generate address:
-    user.address = Faker::Address.full_address
+    user.address = ["Bordeaux", "Paris", "Agen", "Toulouse", "Marseille", "Lyon", "Le Havre", "Nancy", "Dijon", "Nantes", "Limoges"].sample
     user.save!
   end
   puts "It's in DB, now you can use Users"
@@ -70,9 +70,14 @@ if fill_animals
       # hour_price
       animal.hour_price = Faker::Number.within(range: 50..500)
       puts animal.hour_price
+      # address
+      animal.address = User.find(animal.user_id).address
+      # coordonnées:
+      results = Geocoder.search(animal.address)
+      animal.latitude = results.first.coordinates[0]
+      animal.longitude = results.first.coordinates[1]
       animal.save
     end
   end
 end
 puts "It's in DB! Now you can watch lots of animals!!!"
-
