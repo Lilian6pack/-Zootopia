@@ -2,9 +2,9 @@ class BookingsController < ApplicationController
   def index
     if current_user.zoo
       # il me faut tout les bookings qui concerne les animaux du current_user!
+      raise
       @animals = Animal.where(user_id: current_user.id)
-      @ids = @animals.map { |animal| animal.id }
-      @bookings = Booking.where(@ids.include?(:animal_id))
+      @bookings = Booking.where(animal_id: @animals.id)
     else
       @bookings = Booking.where(user_id == current_user.id)
     end
