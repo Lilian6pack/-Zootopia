@@ -9,7 +9,6 @@
       <div class="card-body">
       <h1 class="card-title"><%= @animal.name %></h1>
         <p class="card-text"><%=@animal.description%></p>
-
         <%=link_to "Reserve", new_animal_booking_path(@animal), class: 'btn btn-primary' %>
       </div>
     </div>
