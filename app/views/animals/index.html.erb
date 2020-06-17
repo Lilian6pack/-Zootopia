@@ -2,7 +2,6 @@
   <div class="container">
     <h1>Meilleur site de location d'animaux</strong> !</h1>
     <p>Lion, Singe, Crocodile, Jaguar et bien d'autres...</p>
-
     <% if current_user.zoo %>
       <%= link_to "Creer une annonce", new_animal_path, class: 'btn btn-primary' %>
       <% else %>

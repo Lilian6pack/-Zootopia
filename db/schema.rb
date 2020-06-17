@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_17_094125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +68,7 @@ ActiveRecord::Schema.define(version: 2020_06_17_094125) do
     t.string "name"
     t.boolean "zoo", default: false
     t.string "url_photo", default: "https://img.freepik.com/icones-gratuites/info-logo-dans-cercle_318-947.jpg?size=338&ext=jpg"
+    t.string "address", default: "73825 Sporer Gardens, Schinnerfurt, AL 39962-5285"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -24,6 +24,8 @@ if fill_users
     # generate zoo(boolean):
     user.zoo = Faker::Boolean.boolean(true_ratio: 0.6)
     puts user
+    # generate address:
+    user.address = Faker::Address.full_address
     user.save!
   end
   puts "It's in DB, now you can use Users"
