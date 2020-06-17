@@ -3,8 +3,15 @@ class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :destroy]
 
   def index
-    @animals = Animal.all
-    @animal = Animal.new
+    @animals = Animal.geocoded # returns flats with coordinates
+    @markers = @animals.map do |animal|
+      {
+        lat: animal.latitude,
+        lng: animal.longitude
+      }
+    end
+    # @animals = Animal.all
+    # @animal = Animal.new
   end
 
   def show

@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.12.0'
+gem 'geocoder'
 
 # gem faker to fill the db (animals, user, booking)
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
