@@ -5,6 +5,7 @@
     <% if current_user.zoo %>
       <%= link_to "Creer une annonce", new_animal_path, class: 'btn btn-primary' %>
     <% end %>
+
     
     <form action="<%=search_path%>" method="get">
     <div class="form-group">
@@ -13,7 +14,6 @@
     <button type="submit" id="btnsubmit" class="btn btn-primary">Submit</button>
   </form>
   <i class="fas fa-search"></i>
-  </div>
 </div>
 
 <div class="container">

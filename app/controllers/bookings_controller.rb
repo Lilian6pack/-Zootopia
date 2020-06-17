@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.all
+    if current_user.zoo
+      @bookings = Booking.where(user_id == current_user.id)
+    else
+      @bookings = Booking.all
+    end
   end
 
   def new
@@ -12,7 +16,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to animal_booking_path(@booking.animal.id, @booking.id)
     else
       render 'new'
     end
