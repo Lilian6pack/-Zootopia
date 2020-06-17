@@ -3,7 +3,7 @@ require 'json'
 require 'open-uri'
 require 'nokogiri'
 
-fill_users = true
+fill_users = false
 fill_animals = true
 
 Booking.destroy_all
@@ -66,7 +66,7 @@ if fill_animals
       puts animal.description
       # photo_url
       animal.photo_url = description.search('img').first.attributes['src']
-      puts animal.photo_url
+      puts animal.photo_url.to_s
       # hour_price
       animal.hour_price = Faker::Number.within(range: 50..500)
       puts animal.hour_price
