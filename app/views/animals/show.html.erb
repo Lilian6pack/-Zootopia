@@ -1,15 +1,17 @@
 
 
-<div class="card mb-3">
+<div class="card   mb-3">
   <div class="row no-gutters">
-    <div class="col-md-4">
-      <img src=<%=@animal.photo_url%> class="card-img" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
+    <div class="col-md-6 offset-3">
+      <div class="card-body text-center">
       <h1 class="card-title"><%= @animal.name %></h1>
         <p class="card-text"><%=@animal.description%></p>
-        <%=link_to "Reserve", new_animal_booking_path(@animal), class: 'btn btn-primary' %>
+        <%= cl_image_tag @animal.photo_url.key, height: 300, width: 400, crop: :fill %>
+        <% if current_user.zoo %>
+          <% "" %>
+        <% else %>
+          <%=link_to "Reserve", new_animal_booking_path(@animal), class: 'btn btn-primary' %>
+        <%end%>
       </div>
     </div>
   </div>
