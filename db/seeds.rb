@@ -6,6 +6,8 @@ require 'nokogiri'
 fill_users = true
 fill_animals = true
 
+Booking.destroy_all
+
 
 # generate Users
 if fill_users
@@ -20,7 +22,7 @@ if fill_users
     # generate name:
     user.name = Faker::Name.name
     # generate zoo(boolean):
-    user.zoo = Faker::Boolean.boolean(true_ratio: 0.2)
+    user.zoo = Faker::Boolean.boolean(true_ratio: 0.6)
     puts user
     user.save!
   end
@@ -29,6 +31,7 @@ end
 
 # generate Animals
 if fill_animals
+  list_of_zoo = User.where(zoo: true)
   count = 0
   puts "please wait we load some animals for your zoo"
   Animal.destroy_all
@@ -45,7 +48,8 @@ if fill_animals
       puts count
       next if count <= 5
       # generate user_id:
-      animal.user_id = Faker::Number.within(range: User.first.id..User.last.id)
+      animal.user_id = list_of_zoo.sample.id
+      Faker::Number.within(range: User.first.id..User.last.id)
       # name
       animal.name = description.search('.card2__label--title').first.text.strip
       puts animal.name
