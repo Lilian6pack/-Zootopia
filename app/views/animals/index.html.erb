@@ -2,17 +2,19 @@
   <div class="container">
     <h1>Meilleur site de location d'animaux</strong> !</h1>
     <p>Lion, Singe, Crocodile, Jaguar et bien d'autres...</p>
-    <% if current_user.zoo %>
+    <% if @user == current_user.zoo %>
       <%= link_to "Creer une annonce", new_animal_path, class: 'btn btn-primary' %>
+      <% else %>
+      <% "" %>
     <% end %>
+
     
     <form action="<%=search_path%>" method="get">
     <div class="form-group">
       <input type="text" class="form-control" id="exampleFormControlInput1" aria-describedby="emailHelp" placeholder="Lion gentil...">
     </div>
-    <button type="submit" id="btnsubmit" class="btn btn-primary">Submit</button>
+    <button type="submit" id="btnsubmit" class="btn btn-primary">Search</button>
   </form>
-  <i class="fas fa-search"></i>
   </div>
 </div>
 
