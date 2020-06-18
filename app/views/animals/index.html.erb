@@ -32,7 +32,9 @@
         <% @animals.each do |animal| %>
             <div class="col-12 col-md-6 col-lg-4 pt-3">
                 <div class="card text-center shadow border-0 rounded" style="width: 18rem;">
-                <%= cl_image_tag animal.photo_url.key, id: "img_card", crop: :fill %>
+                  <% if animal.photo_url.attached? %>
+                    <%= cl_image_tag animal.photo_url.key, id: "img_card", crop: :fill %>
+                  <% end %>
                     <div class="card-body text-justify">
                         <h3 class="card-title"><%= animal.name %></h3>
                         <p class="text-black-50"><%= animal.description[0..100] + " ..." %></p>
