@@ -15,7 +15,7 @@
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
         <% end %>
-        <% unless controller_name == "animals" && action_name == "index" %>
+        <% unless controller_name == "animals" && action_name == "index" || current_user.zoo %>
           <li class="nav-item">
             <%= link_to "Voir les animaux", animals_path, class: "nav-link" %>
           </li>
