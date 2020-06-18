@@ -2,7 +2,6 @@
   <div class="container">
     <h1>Meilleur site de location d'animaux</strong> !</h1>
     <p>Lion, Singe, Crocodile, Jaguar et bien d'autres...</p>
-
     <% if current_user.zoo %>
       <%= link_to "Creer une annonce", new_animal_path, class: 'btn btn-primary' %>
       <% else %>
@@ -15,28 +14,34 @@
     </div>
 
   </form>
+
   </div>
 </div>
 
-<div class="container">
-<div class='d-flex justify-content-between align-items-center pt-5'>
+<div class="container pb-5">
+  <div class='pt-5'>
     <h1 class="text-center">Animals</h1>
-</div>
-    <div class="row">
+       <div class="row">
         <% @animals.each do |animal| %>
             <div class="col-12 col-md-6 col-lg-4 pt-3">
-                <div class="card text-center box-shadow border-0" style="width: 18rem;">
+                <div class="card text-center shadow border-0 rounded" style="width: 18rem;">
                 <%= cl_image_tag animal.photo_url.key, id: "img_card", crop: :fill %>
-                    <div class="ca"rd-body"">
-                        <h5 class="card-title"><%= animal.name %></h5>
-                        <%= animal.description[0..100] + " ..." %>
-                        <p><strong>Price </strong>:<%= animal.hour_price %> €</p>
+                    <div class="card-body text-justify">
+                        <h3 class="card-title"><%= animal.name %></h3>
+                        <p class="text-black-50"><%= animal.description[0..100] + " ..." %></p>
+                        <p class="price"><%= animal.hour_price %> €</p>
                         <%= link_to "Voir plus", animal_path(animal), class:'btn btn-primary btn-block mt-2' %>
                     </div>
                 </div>
             </div>
             <% end %>
+            
     </div>
+  </div>
 </div>
 
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
