@@ -15,10 +15,10 @@
         <%end%>
       </div>
       <% if current_user.zoo %>
-      <%= link_to "delete", animal_path(@animal), method: "delete"  %>
-    <% else %>
-      <%=link_to "Reserve", new_animal_booking_path(@animal), class: 'btn btn-primary' %>
-    <%end%>
+        <%= link_to "delete", animal_path(@animal), method: "delete"  %>
+      <% else %>
+        <%=link_to "Reserve", new_animal_booking_path(@animal), class: 'btn btn-primary' %>
+      <%end%>
     </div>
   </div>
 </div>

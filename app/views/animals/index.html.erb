@@ -30,7 +30,7 @@
                     <div class="card-body text-justify">
                         <h3 class="card-title"><%= animal.name %></h3>
                         <p class="text-black-50"><%= animal.description[0..100] + " ..." %></p>
-                        <p class="price"><%= animal.hour_price %> €</p>
+                        <p class="price"><%= animal.daily_price %> €</p>
                         <%= link_to "Voir plus", animal_path(animal), class:'btn btn-primary btn-block mt-2' %>
                     </div>
                 </div>
