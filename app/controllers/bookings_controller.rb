@@ -6,8 +6,12 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = Booking.new
+    if current_user
+      @booking = Booking.new
     @animal = Animal.find(params[:animal_id])
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def create
