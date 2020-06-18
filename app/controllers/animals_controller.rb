@@ -3,17 +3,39 @@ class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :destroy]
 
   def index
-    @animals = Animal.geocoded # returns flats with coordinates
-    @markers = @animals.map do |animal|
-      {
-        lat: animal.latitude,
-        lng: animal.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { animal: animal }),
-        image_url: helpers.asset_url('/images/mark.jpg') 
-      }
+    if current_user
+      if current_user.zoo
+        @animals = Animal.where(user_id: current_user.id).geocoded
+        @markers = @animals.map do |animal|
+          {
+            lat: animal.latitude,
+            lng: animal.longitude,
+            infoWindow: render_to_string(partial: "info_window", locals: { animal: animal }),
+            image_url: helpers.asset_url('/images/mark.jpg') 
+          }
+        end
+      else
+        @animals = Animal.geocoded
+        @markers = @animals.map do |animal|
+          {
+            lat: animal.latitude,
+            lng: animal.longitude,
+            infoWindow: render_to_string(partial: "info_window", locals: { animal: animal }),
+            image_url: helpers.asset_url('/images/mark.jpg') 
+          }
+        end
+      end
+    else
+      @animals = Animal.geocoded
+      @markers = @animals.map do |animal|
+        {
+          lat: animal.latitude,
+          lng: animal.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { animal: animal }),
+          image_url: helpers.asset_url('/images/mark.jpg') 
+        }
+      end
     end
-    # @animals = Animal.all
-    # @animal = Animal.new
   end
 
   def show

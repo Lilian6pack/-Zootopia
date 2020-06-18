@@ -5,6 +5,7 @@
     <% if current_user %>
       <% if current_user.zoo %>
         <%= link_to "Creer une annonce", new_animal_path, class: 'btn btn-primary' %>
+        <%= link_to "Voir mes animaux", animals_path, class: 'btn btn-primary' %>
         <% else %>
         <% "" %>
       <% end %>
