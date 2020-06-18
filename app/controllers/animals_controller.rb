@@ -3,10 +3,15 @@ class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :destroy]
 
   def index
+    if params[:query].present?
+      @animals = Animal.search_by_name(params[:query])
+    else
+      @animals = Animal.all
+    end
     if current_user
       if current_user.zoo
-        @animals = Animal.where(user_id: current_user.id).geocoded
-        @markers = @animals.map do |animal|
+        animals_geocoded = Animal.where(user_id: current_user.id).geocoded
+        @markers = animals_geocoded.map do |animal|
           {
             lat: animal.latitude,
             lng: animal.longitude,
@@ -15,8 +20,8 @@ class AnimalsController < ApplicationController
           }
         end
       else
-        @animals = Animal.geocoded
-        @markers = @animals.map do |animal|
+        animals_geocoded = Animal.geocoded
+        @markers = animals_geocoded.map do |animal|
           {
             lat: animal.latitude,
             lng: animal.longitude,
@@ -26,8 +31,8 @@ class AnimalsController < ApplicationController
         end
       end
     else
-      @animals = Animal.geocoded
-      @markers = @animals.map do |animal|
+      animals_geocoded = Animal.geocoded
+      @markers = animals_geocoded.map do |animal|
         {
           lat: animal.latitude,
           lng: animal.longitude,
