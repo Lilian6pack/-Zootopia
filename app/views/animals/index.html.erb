@@ -5,8 +5,6 @@
 
     <% if current_user.zoo %>
       <%= link_to "Creer une annonce", new_animal_path, class: 'btn btn-primary' %>
-      <% else %>
-      <% "" %>
     <% end %>    
 
     <%= form_tag animals_path, method: :get do %>
