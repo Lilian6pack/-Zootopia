@@ -8,10 +8,14 @@
       <% "" %>
     <% end %>    
 
-    <form action="<%=search_path%>" method="get">
-    <div class="form-group">
-      <input type="text" class="form-control" id="exampleFormControlInput1" aria-describedby="emailHelp" placeholder="Lion gentil...">
-    </div>
+    <%= form_tag animals_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Lion gentil..."
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
 
   </form>
 
