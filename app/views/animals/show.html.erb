@@ -1,19 +1,23 @@
 
 
-<div class="card   mb-3">
+<div class="card mb-3">
   <div class="row no-gutters">
     <div class="col-md-6 offset-3">
-      <div class="card-body text-center">
-        <h1 class="card-title"><%= @animal.name %></h1>
-        <p class="card-text"><%=@animal.description%></p>
-        <%= cl_image_tag @animal.photo_url.key, height: 300, width: 400, crop: :fill %>
-
+    <div class="card-product mb-3">
+      <%= cl_image_tag @animal.photo_url.key, height: 300, width: 400, crop: :fill %>
+      <div class="card-product-infos">
+      <h1 class="card-title"><%= @animal.name %></h1>
+      <p class="card-text"><%=@animal.description%></p>
+      <p class="price-show"><%=@animal.daily_price%> €</p>
       </div>
+    </div>
+  
+  
       
       <% if @animal.user == current_user %>
-      <%= link_to "delete", animal_path(@animal), method: "delete", class: 'btn btn-danger'  %>
-      <%=link_to "Edit", edit_animal_path(@animal), class: 'btn btn-primary' %>
-      <%= link_to "Voir mes animaux", animals_path, class: 'btn btn-primary' %>
+      <%= link_to animal_path(@animal), method: "delete", class: 'btn btn-outline-danger rounded' do %> Delete <i class="far fa-trash-alt"></i><%end%>
+      <%=link_to edit_animal_path(@animal), class: 'btn btn-outline-primary' do %>Edit <i class="far fa-edit"></i><%end%>
+      <%= link_to  animals_path, class: 'btn btn-outline-primary' do %>Voir mes annonces <i class="far fa-eye"></i><%end%>
     <% else %>
       <%=link_to "Reserve", new_animal_booking_path(@animal), class: 'btn btn-primary' %>
     <%end%>

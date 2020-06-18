@@ -1,5 +1,6 @@
 #img_card{
     width: 100%;
+
   }
 
   .price{
@@ -13,4 +14,9 @@
     top: 0px;
     right: 0px;
     border-bottom-left-radius: 8px;;
+  }
+
+  .card-index:hover{
+    transform: scale(1.03);
+    transition: 0.2s;
   }

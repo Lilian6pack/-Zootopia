@@ -1,28 +1,27 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/ded9yhg1e/image/upload/v1592313865/mnrfqelrtzqtgiwbbjx5.jpg);">
   <div class="container">
-    <h1>Meilleur site de location d'animaux</strong> !</h1>
-    <p>Lion, Singe, Crocodile, Jaguar et bien d'autres...</p>
-    <% if current_user %>
-        <% if current_user.zoo %>
-        <%= link_to "Creer une annonce", new_animal_path, class: 'btn btn-primary' %>
-        <%= link_to "Voir mes animaux", animals_path, class: 'btn btn-primary' %>   
-      <% end %>  
-    <% end %>
-  
-
-    <%= form_tag animals_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Lion gentil..."
-      %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
-
-
-  </form>
-
-  </div>
+    <div class="row">
+      <div class="col-9">
+        <h1 class="pb-5">Meilleur site de location d'animaux</strong> !</h1>
+        <p>Lion, Singe, Crocodile, Jaguar et bien d'autres...</p>
+        <% if current_user %>
+            <% if current_user.zoo %>
+            <%= link_to "Creer une annonce", new_animal_path, class: 'btn btn-primary' %>
+            <%= link_to "Voir mes animaux", animals_path, class: 'btn btn-primary' %>   
+          <% end %>  
+        <% end %>
+        <%= form_tag animals_path, method: :get, class: ' pt-3 search d-flex' do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Lion gentil..."
+            %>
+            <%= button_tag class: "search-index btn btn-primary ml-3" do %><i class="fas fa-search aria-hidden="true""></i><%end%>
+          <% end %>
+        </form>
+      </div>
+    </div>
+  </div> 
 </div>
 
 <div class="container pb-5">
@@ -31,7 +30,7 @@
        <div class="row">
         <% @animals.each do |animal| %>
             <div class="col-12 col-md-6 col-lg-4 pt-3">
-                <div class="card text-center shadow border-0 rounded" style="width: 18rem;">
+                <div class="card card-index text-center shadow border-0" style="width: 18rem;">
                 <%= cl_image_tag animal.photo_url.key, id: "img_card", crop: :fill %>
                     <div class="card-body text-justify">
                         <h3 class="card-title"><%= animal.name %></h3>
