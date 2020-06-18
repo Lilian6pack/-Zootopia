@@ -11,11 +11,11 @@
           <% "" %>
         <% else %>
           <%=link_to "Reserve", new_animal_booking_path(@animal), class: 'btn btn-primary' %>
-          <%=link_to "Edit", animal_path(@animal), class: 'btn btn-primary' %>
         <%end%>
       </div>
       <% if current_user.zoo %>
       <%= link_to "delete", animal_path(@animal), method: "delete"  %>
+      <%=link_to "Edit", edit_animal_path(@animal), class: 'btn btn-primary' %>
     <% else %>
       <%=link_to "Reserve", new_animal_booking_path(@animal), class: 'btn btn-primary' %>
     <%end%>
