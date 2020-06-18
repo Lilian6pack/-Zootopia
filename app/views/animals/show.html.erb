@@ -4,9 +4,18 @@
   <div class="row no-gutters">
     <div class="col-md-6 offset-3">
       <div class="card-body text-center">
-      <h1 class="card-title"><%= @animal.name %></h1>
+        <h1 class="card-title"><%= @animal.name %></h1>
         <p class="card-text"><%=@animal.description%></p>
         <%= cl_image_tag @animal.photo_url.key, height: 300, width: 400, crop: :fill %>
+        <% if current_user.present? %>
+          <% if current_user.zoo %>
+
+            <%= link_to "delete", animal_path(@animal), method: "delete"  %>
+            <%=link_to "Edit", animal_path(@animal), class: 'btn btn-primary' %>
+          <% end %>
+        <% else %>
+            <%=link_to "Reserve", new_animal_booking_path(@animal), class: 'btn btn-primary' %>
+        <%end%>
       </div>
       <% if current_user.zoo %>
       <%= link_to "delete", animal_path(@animal), method: "delete", class: 'btn btn-danger'  %>
