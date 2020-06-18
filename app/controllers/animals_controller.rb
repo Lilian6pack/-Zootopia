@@ -38,6 +38,17 @@ class AnimalsController < ApplicationController
     end
   end
 
+  def edit
+    set_animal
+  end
+
+  def update 
+    set_animal
+    @animal.update(animal_params)
+
+    redirect_to animal_path(@animal)
+  end
+
   def destroy
     set_animal
     @animal.destroy
