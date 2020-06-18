@@ -9,7 +9,8 @@
         <%= cl_image_tag @animal.photo_url.key, height: 300, width: 400, crop: :fill %>
 
       </div>
-      <% if current_user.zoo %>
+      
+      <% if @animal.user == current_user %>
       <%= link_to "delete", animal_path(@animal), method: "delete", class: 'btn btn-danger'  %>
       <%=link_to "Edit", edit_animal_path(@animal), class: 'btn btn-primary' %>
       <%= link_to "Voir mes animaux", animals_path, class: 'btn btn-primary' %>
