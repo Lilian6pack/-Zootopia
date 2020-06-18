@@ -7,7 +7,9 @@ class AnimalsController < ApplicationController
     @markers = @animals.map do |animal|
       {
         lat: animal.latitude,
-        lng: animal.longitude
+        lng: animal.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { animal: animal }),
+        image_url: helpers.asset_url('/images/mark.jpg') 
       }
     end
     # @animals = Animal.all
