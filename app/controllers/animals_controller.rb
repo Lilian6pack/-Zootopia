@@ -17,8 +17,11 @@ class AnimalsController < ApplicationController
   end
 
   def show
-    set_animal
-    
+    if current_user
+      set_animal
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def new
