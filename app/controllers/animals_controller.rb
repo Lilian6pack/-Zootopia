@@ -12,7 +12,9 @@ class AnimalsController < ApplicationController
     @markers = animals_geocoded.map do |animal|
       {
         lat: animal.latitude,
-        lng: animal.longitude
+        lng: animal.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { animal: animal }),
+        image_url: helpers.asset_url('/images/mark.jpg') 
       }
 
     end
@@ -24,8 +26,11 @@ class AnimalsController < ApplicationController
   end
 
   def show
-    set_animal
-    
+    if current_user
+      set_animal
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def new
@@ -62,7 +67,7 @@ class AnimalsController < ApplicationController
   private
 
   def animal_params
-    params.require(:animal).permit(:user_id, :name, :description, :photo_url, :hour_price, :address)
+    params.require(:animal).permit(:user_id, :name, :description, :photo_url, :daily_price, :address)
   end
 
   def set_animal

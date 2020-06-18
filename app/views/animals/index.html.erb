@@ -2,6 +2,7 @@
   <div class="container">
     <h1>Meilleur site de location d'animaux</strong> !</h1>
     <p>Lion, Singe, Crocodile, Jaguar et bien d'autres...</p>
+
     <% if current_user.zoo %>
       <%= link_to "Creer une annonce", new_animal_path, class: 'btn btn-primary' %>
       <% else %>
@@ -16,6 +17,7 @@
       %>
       <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
+
 
   </form>
 
@@ -33,19 +35,20 @@
                     <div class="card-body text-justify">
                         <h3 class="card-title"><%= animal.name %></h3>
                         <p class="text-black-50"><%= animal.description[0..100] + " ..." %></p>
-                        <p class="price"><%= animal.hour_price %> €</p>
+                        <p class="price"><%= animal.daily_price %> €</p>
                         <%= link_to "Voir plus", animal_path(animal), class:'btn btn-primary btn-block mt-2' %>
                     </div>
                 </div>
             </div>
             <% end %>
-            
+
     </div>
   </div>
 </div>
 
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
+<div class="container">
+  <div id="map"
+      style="width: 100%; height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+</div>

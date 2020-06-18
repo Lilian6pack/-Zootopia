@@ -5,7 +5,7 @@
     <% @bookings.each do |booking| %>
         <div class="col-12 col-md-6 col-lg-3">
           <div class="card text-center mt-5">
-            <img src="<%= booking.animal.photo_url%>" class="card-img-top" alt="...">
+           <%= cl_image_tag booking.animal.photo_url.key, height: 300, width: 400, crop: :fill %>
             <div class="card-description">
               <h3> Your animal is <%= booking.animal.name %></h3>
               <p>N° of your booking : <%= booking.id %></p>
