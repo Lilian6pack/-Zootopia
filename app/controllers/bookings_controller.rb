@@ -23,6 +23,8 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    @nb_of_days = (@booking.end_date - @booking.start_date).numerator
+    @total_price = @booking.animal.daily_price * @nb_of_days
   end
 
   private

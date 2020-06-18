@@ -4,7 +4,7 @@
   <div class="row">
         <div class="col-12 col-md-6 col-lg-6">
           <div class="card text-center mt-5">
-            <img src="<%= @booking.animal.photo_url%>" class="card-img-top" alt="...">
+            <%= cl_image_tag @booking.animal.photo_url.key, height: 300, width: 400, crop: :fill %>
             <div class="card-description">
               <h3> Your animal is <%= @booking.animal.name %></h3>
               <p>N° of your booking : <%= @booking.id %></p>
@@ -14,5 +14,20 @@
             </div>
           </div>
         </div>
+
+        <div class="col-12 col-md-6 col-lg-6">
+          <div class="card text-center mt-5">
+            <div class="card-description">
+              <h3> Daily price: <%= @booking.animal.daily_price %> Euros</h3>
+              <p> X </p>
+              <%= pluralize(@nb_of_days, 'day') %>
+              <p> = </p>
+              <%= @total_price.to_s + " Euros" %><br>
+              <%= link_to "Pay", "#", class: "btn btn-primary btn-lg px-5" %>
+            </div>
+          </div>
+        </div>
+
+
   </div>
 </div>
