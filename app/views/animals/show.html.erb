@@ -5,8 +5,8 @@
     <div class="card-product">
       <%= cl_image_tag @animal.photo_url.key, height: 300, width: 400, crop: :fill %>
       <div class="card-product-infos">
-        <h1 class="card-title"><%= @animal.name %></h1>
-        <p class="card-text"><%=@animal.description%></p>
+        <h1 class="card-title infos"><%= @animal.name %></h1>
+        <p class="card-text content"><%=@animal.description%></p>
         <p class="price-show"><%=@animal.daily_price%> €</p>
       </div>
       <% if @animal.user == current_user %>
@@ -19,7 +19,7 @@
     </div>
     <div>
       <div id="map"
-        style="width: 100%; height: 400px;"
+        style="width: 100%; height: 225px;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       </div>
