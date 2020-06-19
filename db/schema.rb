@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2020_06_18_093009) do
     t.string "name"
     t.boolean "zoo", default: false
     t.string "url_photo", default: "https://img.freepik.com/icones-gratuites/info-logo-dans-cercle_318-947.jpg?size=338&ext=jpg"
-    t.string "address", default: "Apt. 211 45650 Hillary Via, Port Gaylord, NM 70238"
+    t.string "address", default: "614 Carrol Glens, Marvamouth, ND 21757-2375"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
