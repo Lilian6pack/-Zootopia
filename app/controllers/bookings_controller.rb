@@ -6,8 +6,12 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = Booking.new
+    if current_user
+      @booking = Booking.new
     @animal = Animal.find(params[:animal_id])
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def create
@@ -16,7 +20,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to animal_booking_path(@booking.animal.id, @booking.id)
     else
-      raise
+
       render 'new'
     end
   end

@@ -3,30 +3,38 @@ class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :destroy]
 
   def index
+    # list:
     if current_user
       if current_user.zoo
-        @animals = Animal.where(user_id: current_user.id).geocoded
-        @markers = @animals.map do |animal|
-          {
-            lat: animal.latitude,
-            lng: animal.longitude,
-            infoWindow: render_to_string(partial: "info_window", locals: { animal: animal }),
-            image_url: helpers.asset_url('/images/mark.jpg') 
-          }
-        end
+        @list = Animal.where(user_id: current_user.id).geocoded
       else
-        @animals = Animal.geocoded
-        @markers = @animals.map do |animal|
-          {
-            lat: animal.latitude,
-            lng: animal.longitude,
-            infoWindow: render_to_string(partial: "info_window", locals: { animal: animal }),
-            image_url: helpers.asset_url('/images/mark.jpg') 
-          }
-        end
+        @list = Animal.all
       end
     else
-      @animals = Animal.geocoded
+      @list = Animal.all
+    end
+    # search:
+    if params[:query].present?
+      @animals = @list.search_by_name(params[:query])
+    else
+      @animals = @list
+    end
+    # markers:
+    @markers = @animals.map do |animal|
+      {
+        lat: animal.latitude,
+        lng: animal.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { animal: animal }),
+        image_url: helpers.asset_url('/images/mark.jpg') 
+      }
+    end
+  end
+
+  def show
+      set_animal
+      @animals = []
+      @animals << @animal
+      # markers:
       @markers = @animals.map do |animal|
         {
           lat: animal.latitude,
@@ -35,15 +43,6 @@ class AnimalsController < ApplicationController
           image_url: helpers.asset_url('/images/mark.jpg') 
         }
       end
-    end
-  end
-
-  def show
-    if current_user
-      set_animal
-    else
-      redirect_to new_user_session_path
-    end
   end
 
   def new

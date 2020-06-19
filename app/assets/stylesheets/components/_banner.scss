@@ -1,10 +1,12 @@
 .banner {
     background-size: cover;
     background-position: bottom;
-    padding: 150px 0;
+    background-attachment: fixed;
+    height: 100vh;
+    padding-top: 350px;
   }
   
-  .banner h1 {
+  #main-h1 {
     margin: 0;
     color: white;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
@@ -12,23 +14,32 @@
     font-weight: bold;
   }
   
-  .banner p {
+#main-p {
     font-size: 20px;
     color: white;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   }
-  
-#exampleFormControlInput1{
-      position: relative;
-      top: 207px;;
-      height: 80px;
-      border-radius: 8px;
-      border: none;
-      box-shadow: 0px 5px 5px lightgray;
-  }
 
-#btnsubmit{
-    position: relative;
-    left: 990px;
-    top: 166px;
+.search button{
+  border-radius: 50%;
+  border: none;
+  height: 40px;
+  position: absolute;
+  right: 7px;
+  
+}
+
+
+.search input{
+  border-radius: 20px;;
+  border: none;
+  height: 40px;
+}
+
+.banner-show{
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
+  height: 100vh;
+  padding-top: 50px;
 }

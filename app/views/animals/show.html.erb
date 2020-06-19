@@ -1,27 +1,32 @@
-<div class="card   mb-3">
-  <div class="row no-gutters">
+<div class="banner banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/ded9yhg1e/image/upload/v1592313865/mnrfqelrtzqtgiwbbjx5.jpg);">
+<div>
+<div class="row no-gutters">
     <div class="col-md-6 offset-3">
-      <div class="card-body text-center">
+    <div class="card-product">
+      <%= cl_image_tag @animal.photo_url.key, height: 300, width: 400, crop: :fill %>
+      <div class="card-product-infos">
         <h1 class="card-title"><%= @animal.name %></h1>
         <p class="card-text"><%=@animal.description%></p>
-        <%= cl_image_tag @animal.photo_url.key, height: 300, width: 400, crop: :fill %>
-
-          <% if current_user.zoo %>
-            <%= link_to "delete", animal_path(@animal), method: "delete"  %>
-            <%=link_to "Edit", animal_path(@animal), class: 'btn btn-primary' %>
-          <% else %>
-
-            <%=link_to "Reserve", new_animal_booking_path(@animal), class: 'btn btn-primary' %>
-        <%end%>
+        <p class="price-show"><%=@animal.daily_price%> €</p>
       </div>
-      <% if current_user.zoo %>
-      <%= link_to "delete", animal_path(@animal), method: "delete", class: 'btn btn-danger'  %>
-      <%=link_to "Edit", edit_animal_path(@animal), class: 'btn btn-primary' %>
-      <%= link_to "Voir mes animaux", animals_path, class: 'btn btn-primary' %>
-    <% else %>
-      <%=link_to "Reserve", new_animal_booking_path(@animal), class: 'btn btn-primary' %>
-    <%end%>
+      <% if @animal.user == current_user %>
+        <%= link_to animal_path(@animal), method: "delete", class: 'btn btn-outline-danger rounded' do %> Supprimer <i class="far fa-trash-alt"></i><%end%>
+        <%=link_to edit_animal_path(@animal), class: 'btn btn-outline-primary' do %>Editer <i class="far fa-edit"></i><%end%>
+        <%= link_to  animals_path, class: 'btn btn-outline-primary' do %>Voir mes annonces <i class="far fa-eye"></i><%end%>
+      <% else %>
+        <%=link_to "Réserver", new_animal_booking_path(@animal), class: 'btn-reserve btn btn-primary' %>
+      <%end%>
+    </div>
+    <div>
+      <div id="map"
+        style="width: 100%; height: 400px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      </div>
     </div>
   </div>
 </div>
+
+
+
 

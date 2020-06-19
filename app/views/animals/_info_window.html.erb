@@ -1,3 +1,5 @@
 <h2><%= animal.name %></h2>
 <p><%= animal.address %></p>
-<%= cl_image_tag animal.photo_url.key, class:"avatar-bordered" %>
+<% if animal.photo_url.attached? %>
+  <%= cl_image_tag animal.photo_url.key, class:"resize-img" %>
+<% end %>
