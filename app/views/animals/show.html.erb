@@ -1,27 +1,31 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/ded9yhg1e/image/upload/v1592313865/mnrfqelrtzqtgiwbbjx5.jpg);">
-<div class="row no-gutters">
-  <div class="col-md-6 offset-3">
-  <div class="card-product">
-    <%= cl_image_tag @animal.photo_url.key, height: 300, width: 400, crop: :fill %>
-    <div class="card-product-infos">
-    <h1 class="card-title"><%= @animal.name %></h1>
-    <p class="card-text"><%=@animal.description%></p>
-    <p class="price-show"><%=@animal.daily_price%> €</p>
+  <div class="row no-gutters">
+    <div class="col-md-6 offset-3">
+    <div class="card-product">
+      <%= cl_image_tag @animal.photo_url.key, height: 300, width: 400, crop: :fill %>
+      <div class="card-product-infos">
+        <h1 class="card-title"><%= @animal.name %></h1>
+        <p class="card-text"><%=@animal.description%></p>
+        <p class="price-show"><%=@animal.daily_price%> €</p>
+      </div>
+      <% if @animal.user == current_user %>
+        <%= link_to animal_path(@animal), method: "delete", class: 'btn btn-outline-danger rounded' do %> Delete <i class="far fa-trash-alt"></i><%end%>
+        <%=link_to edit_animal_path(@animal), class: 'btn btn-outline-primary' do %>Edit <i class="far fa-edit"></i><%end%>
+        <%= link_to  animals_path, class: 'btn btn-outline-primary' do %>Voir mes annonces <i class="far fa-eye"></i><%end%>
+      <% else %>
+        <%=link_to "Reserve", new_animal_booking_path(@animal), class: 'btn btn-primary' %>
+      <%end%>
+    </div>
+    <div>
+      <div id="map"
+        style="width: 100%; height: 400px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      </div>
+    </div>
   </div>
-
-
-    
-    <% if @animal.user == current_user %>
-    <%= link_to animal_path(@animal), method: "delete", class: 'btn btn-outline-danger rounded' do %> Delete <i class="far fa-trash-alt"></i><%end%>
-    <%=link_to edit_animal_path(@animal), class: 'btn btn-outline-primary' do %>Edit <i class="far fa-edit"></i><%end%>
-    <%= link_to  animals_path, class: 'btn btn-outline-primary' do %>Voir mes annonces <i class="far fa-eye"></i><%end%>
-  <% else %>
-    <%=link_to "Reserve", new_animal_booking_path(@animal), class: 'btn btn-primary' %>
-  <%end%>
-  </div>
-</div>
 </div>
 
-</div>
+
 
 

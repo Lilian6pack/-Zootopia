@@ -32,6 +32,17 @@ class AnimalsController < ApplicationController
 
   def show
       set_animal
+      @animals = []
+      @animals << @animal
+      # markers:
+      @markers = @animals.map do |animal|
+        {
+          lat: animal.latitude,
+          lng: animal.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { animal: animal }),
+          image_url: helpers.asset_url('/images/mark.jpg') 
+        }
+      end
   end
 
   def new
