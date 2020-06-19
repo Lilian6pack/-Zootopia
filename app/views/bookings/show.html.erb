@@ -15,8 +15,8 @@
         <p>Au <%= @booking.end_date %></p>
         <p> Prix journalier: <%= @booking.animal.daily_price %> Euros</p>
         <h3><strong><%= @total_price.to_s + " Euros" %></strong></h3><br>
-        <%= link_to "Toutes vos reservations", animal_bookings_path, class: "btn btn-primary" %>
-        <%= link_to "Payer", "#", class: "btn btn-primary px-5" %>
+        <%= link_to "Toutes vos reservations", animal_bookings_path, class: "btn btn-primary mb-1" %>
+        <%= link_to "Payer", "#", class: "btn btn-primary px-5 mb-1" %>
       </div>
     </div>
 
