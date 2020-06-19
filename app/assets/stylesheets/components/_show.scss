@@ -10,6 +10,7 @@
   .card-product img {
     height: 100%;
     object-fit: cover;
+    width: 300px;
   }
   
   .card-product h2 {
@@ -50,4 +51,12 @@
     position: absolute;
     top: 303px;
     right: 0;
+  }
+   
+  .infos{
+    font-size: 20px
+  }
+
+  .content{
+    font-size: 12px;
   }
