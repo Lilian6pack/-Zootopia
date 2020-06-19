@@ -18,11 +18,11 @@
         <div class="col-12 col-md-6 col-lg-6">
           <div class="card text-center mt-5">
             <div class="card-description">
-              <h3> Daily price: <%= @booking.animal.daily_price %> Euros</h3>
+              <p> Daily price: <%= @booking.animal.daily_price %> Euros</p>
               <p> X </p>
               <%= pluralize(@nb_of_days, 'day') %>
               <p> = </p>
-              <%= @total_price.to_s + " Euros" %><br>
+              <h3><strong><%= @total_price.to_s + " Euros" %></strong></h3><br>
               <%= link_to "Pay", "#", class: "btn btn-primary btn-lg px-5" %>
             </div>
           </div>
