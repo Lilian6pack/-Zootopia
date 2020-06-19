@@ -14,7 +14,7 @@
         <%=link_to edit_animal_path(@animal), class: 'btn btn-outline-primary' do %>Edit <i class="far fa-edit"></i><%end%>
         <%= link_to  animals_path, class: 'btn btn-outline-primary' do %>Voir mes annonces <i class="far fa-eye"></i><%end%>
       <% else %>
-        <%=link_to "Reserve", new_animal_booking_path(@animal), class: 'btn btn-primary' %>
+        <%=link_to "Réserver", new_animal_booking_path(@animal), class: 'btn-reserve btn btn-primary' %>
       <%end%>
     </div>
     <div>
