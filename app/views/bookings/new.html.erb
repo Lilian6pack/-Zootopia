@@ -1,8 +1,14 @@
-<div class="container mt-5 p-5">
-  <%= simple_form_for [@animal, @booking] do |f| %>
-    <%= f.input :start_date, label: "Date de début" , as: :date, html5: true%>
-    <%= f.input :end_date, label: "Date de fin" , as: :date, html5: true %>
-    <%= f.input :animal_id, as: :hidden, :input_html => { :value => @animal.id } %>
-    <%= f.button :submit, "Valider", class: "btn-primary" %>
-  <% end %>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/ded9yhg1e/image/upload/v1592313865/mnrfqelrtzqtgiwbbjx5.jpg);">
+<div class="container">
+<%= simple_form_for [@animal, @booking] do |f| %>
+  <%= f.input :start_date, label: 'DATE DE DÉBUT', as: :date, html5: true%>
+  <%= f.input :end_date,  label: 'DATE DE FIN', as: :date, html5: true %>
+  <%= f.input :animal_id, as: :hidden, :input_html => { :value => @animal.id } %>
+  <%= f.button :submit, "Valider", class: "btn-primary" %>
+<% end %>
 </div>
+
+  </div>
+
+

@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to animal_booking_path(@booking.animal.id, @booking.id)
     else
-      raise
+
       render 'new'
     end
   end
