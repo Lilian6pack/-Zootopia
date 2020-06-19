@@ -1,5 +1,6 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/ded9yhg1e/image/upload/v1592313865/mnrfqelrtzqtgiwbbjx5.jpg);">
-  <div class="row no-gutters">
+<div class="banner banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/ded9yhg1e/image/upload/v1592313865/mnrfqelrtzqtgiwbbjx5.jpg);">
+<div>  
+<div class="row no-gutters">
     <div class="col-md-6 offset-3">
     <div class="card-product">
       <%= cl_image_tag @animal.photo_url.key, height: 300, width: 400, crop: :fill %>
@@ -23,6 +24,7 @@
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       </div>
     </div>
+  </div>
   </div>
 </div>
 
