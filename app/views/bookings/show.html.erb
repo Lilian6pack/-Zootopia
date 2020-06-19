@@ -4,31 +4,24 @@
   <h1 class="text-white"> Détails de votre reservation </h1>
 
   <div class="row">
-        <div class="col-12 col-md-6 col-lg-6">
-          <div class="card text-center mt-5">
-            <%= cl_image_tag @booking.animal.photo_url.key, height: 300, width: 400, crop: :fill %>
-            <div class="card-description">
-              <h3> Votre animal est <%= @booking.animal.name %></h3>
-              <p>N° de reservation : <%= @booking.id %></p>
-              <p>Du <%= @booking.start_date %></p>
-              <p>Au <%= @booking.end_date %></p>
-              <%= link_to "Toutes vos reservations", animal_bookings_path, class: "btn btn-primary btn-lg" %>
-            </div>
-          </div>
-        </div>
+    <div class="mx-auto">
 
-        <div class="col-12 col-md-6 col-lg-6">
-          <div class="card text-center mt-5">
-            <div class="card-description">
-              <p> Prix journalier: <%= @booking.animal.daily_price %> Euros</p>
-              <p> X </p>
-              <%= pluralize(@nb_of_days, 'jour') %>
-              <p> = </p>
-              <h3><strong><%= @total_price.to_s + " Euros" %></strong></h3><br>
-              <%= link_to "Payer", "#", class: "btn btn-primary btn-lg px-5" %>
-            </div>
-          </div>
-        </div>
+    <div class="card-product">
+      <%= cl_image_tag @booking.animal.photo_url.key, height: 300, width: 400, crop: :fill %>
+      <div class="card-product-infos">
+        <h3> Votre animal est <%= @booking.animal.name %></h3>
+        <p>N° de reservation : <%= @booking.id %></p>
+        <p>Du <%= @booking.start_date %></p>
+        <p>Au <%= @booking.end_date %></p>
+        <p> Prix journalier: <%= @booking.animal.daily_price %> Euros</p>
+        <h3><strong><%= @total_price.to_s + " Euros" %></strong></h3><br>
+        <%= link_to "Toutes vos reservations", animal_bookings_path, class: "btn btn-primary" %>
+        <%= link_to "Payer", "#", class: "btn btn-primary px-5" %>
+      </div>
+    </div>
+
+    </div>
+
   </div>
 </div>
 </div>

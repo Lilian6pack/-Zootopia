@@ -1,20 +1,25 @@
-<div class="container text-center mt-5">
-  <h1> Vos reservations </h1>
+<div class="banner banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/ded9yhg1e/image/upload/v1592313865/mnrfqelrtzqtgiwbbjx5.jpg);">
 
-  <div class="row">
-    <% @bookings.each do |booking| %>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="card text-center mt-5">
-           <%= cl_image_tag booking.animal.photo_url.key, height: 300, width: 400, crop: :fill %>
-            <div class="card-description">
-              <h3> Votre animal est <%= booking.animal.name %></h3>
-              <p>N° de reservation : <%= booking.id %></p>
-              <p>Du <%= booking.start_date %></p>
-              <p>Au <%= booking.end_date %></p>
-              <%= link_to "Voir détails", animal_booking_path(booking.animal.id,booking.id), class: "btn btn-primary btn-lg" %>
+  <div class="container text-center mt-5">
+    <h1 class="text-white"> Vos reservations </h1>
+
+    <div class="row">
+      <% @bookings.each do |booking| %>
+          <div class="col-12 col-md-6 col-lg-8 offset-2">
+            <div class="card-product ok">
+              <%= cl_image_tag booking.animal.photo_url.key, height: 300, width: 400, crop: :fill %>
+              <div class="card-product-infos">
+                <h1 class="card-title infos"><%= booking.animal.name %></h1>
+                <p class="card-text content"><%= booking.id %></p>
+                <p>N° de reservation : <%= booking.id %></p>
+                <p>Du <%= booking.start_date %></p>
+                <p>Au <%= booking.end_date %></p>
+                <%= link_to "Voir détails", animal_booking_path(booking.animal.id,booking.id), class: "btn btn-primary" %>
+              </div>
             </div>
           </div>
-        </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
+
 </div>

@@ -2,8 +2,10 @@
     background-color: rgb(50,50,50);
     display: flex;
     align-items: center;
-    height: 150px;;
     justify-content: space-around;
+    // position: relative;
+    // bottom: 0;
+    // height: 150px;;
     height: 200px;
     padding: 0px 50px;
     color: rgba(0,0,0,0.3);
@@ -26,7 +28,7 @@
   .footer .fa-heart {
     color: #D23333;
   }
-  
+
   .cgu{
       color: white;
   }
