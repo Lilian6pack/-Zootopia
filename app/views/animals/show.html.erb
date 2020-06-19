@@ -10,8 +10,8 @@
         <p class="price-show"><%=@animal.daily_price%> €</p>
       </div>
       <% if @animal.user == current_user %>
-        <%= link_to animal_path(@animal), method: "delete", class: 'btn btn-outline-danger rounded' do %> Delete <i class="far fa-trash-alt"></i><%end%>
-        <%=link_to edit_animal_path(@animal), class: 'btn btn-outline-primary' do %>Edit <i class="far fa-edit"></i><%end%>
+        <%= link_to animal_path(@animal), method: "delete", class: 'btn btn-outline-danger rounded' do %> Supprimer <i class="far fa-trash-alt"></i><%end%>
+        <%=link_to edit_animal_path(@animal), class: 'btn btn-outline-primary' do %>Editer <i class="far fa-edit"></i><%end%>
         <%= link_to  animals_path, class: 'btn btn-outline-primary' do %>Voir mes annonces <i class="far fa-eye"></i><%end%>
       <% else %>
         <%=link_to "Réserver", new_animal_booking_path(@animal), class: 'btn-reserve btn btn-primary' %>
